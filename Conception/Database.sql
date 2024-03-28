@@ -1,7 +1,7 @@
 
 create table APPRENANT
 (
-   ID_APPRENANT         int not null,
+   ID_APPRENANT         int not null auto_increment,
    ID_GROUPE            int not null,
    NOM                  varchar(256) not null,
    PRENOM               varchar(256) not null,
@@ -12,7 +12,7 @@ create table APPRENANT
 
 create table BRIEF
 (
-   ID_BRIEF             int not null,
+   ID_BRIEF             int not null auto_increment,
    ID_FORMATEUR         int not null,
    TITRE                varchar(256) not null,
    DATE_DEBUT           date not null,
@@ -23,7 +23,7 @@ create table BRIEF
 );
 create table COMPETENCE
 (
-   ID_COMPETENCE        int not null,
+   ID_COMPETENCE        int not null auto_increment,
    NOM                  varchar(256) not null,
    primary key (ID_COMPETENCE)
 );
@@ -37,7 +37,7 @@ create table CONCERNE
 
 create table FORMATEUR
 (
-   ID_FORMATEUR         int not null,
+   ID_FORMATEUR         int not null auto_increment,
    NOM                  varchar(256) not null,
    PRENOM               varchar(256) not null,
    EMAIL                varchar(256) not null,
@@ -47,7 +47,7 @@ create table FORMATEUR
 
 create table GROUPE
 (
-   ID_GROUPE            int not null,
+   ID_GROUPE            int not null auto_increment,
    ID_FORMATEUR         int not null,
    NOM_GROUPE           varchar(256) not null,
    ANNEE                varchar(256) not null,
@@ -58,7 +58,7 @@ create table REALISER
 (
    ID_APPRENANT         int not null,
    ID_BRIEF             int not null,
-   ETAT                 varchar(256),
+   ETAT                 varchar(256) not null,
    LIEN                 varchar(256),
    primary key (ID_APPRENANT, ID_BRIEF)
 );
@@ -83,3 +83,5 @@ alter table REALISER add constraint FK_REALISER foreign key (ID_APPRENANT)
 
 alter table REALISER add constraint FK_REALISER2 foreign key (ID_BRIEF)
       references BRIEF (ID_BRIEF) on delete restrict on update restrict;
+alter table GROUPE add unique (NOM_GROUPE,ANNEE);
+alter table GROUPE add unique (ID_FORMATEUR,ANNEE);

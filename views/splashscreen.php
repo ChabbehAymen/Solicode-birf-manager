@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-6">
                 <div>
-                    <img src="online-class-illustration-concept_52683-42416 2 (3).png" alt="ClassImage" class="w-100">
+                    <img src="views/images/TeacherClass.png" alt="ClassImage" class="w-100">
                 </div>
             </div>
             <div class="col-6">

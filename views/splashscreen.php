@@ -28,7 +28,7 @@
                         <strong>“The whole purpose of education is to turn mirrors into windows.” —Sydney J. Harris</strong>
                     </div>
                     <div class="p-1">
-                        <button type="button" class="btn btn-primary">Start Brifing</button>
+                        <a class="btn btn-primary" href="login" >Start Brifing</a>
                     </div>
                 </div>
             </div>

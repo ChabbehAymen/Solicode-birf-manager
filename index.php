@@ -7,6 +7,7 @@ switch (strtok($url, '?')){
     case $baseFolder:
         require $viewsFolder.'home.php';
         break;
+    case $baseFolder.'/error':
     default:
         require $viewsFolder.'404.php';
 }

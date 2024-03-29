@@ -60,6 +60,7 @@ create table REALISER
    ID_BRIEF             int not null,
    ETAT                 varchar(256) not null,
    LIEN                 varchar(256),
+   DATE_AJOUTE          date,
    primary key (ID_APPRENANT, ID_BRIEF)
 );
 

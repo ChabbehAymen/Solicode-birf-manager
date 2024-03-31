@@ -1,7 +1,7 @@
 <?php
 $url = $_SERVER['REQUEST_URI'];
 $viewsFolder = './views/';
-$baseFolder = '/';
+$baseFolder = '/BP15/';
 
 switch (strtok($url, '?')){
     case $baseFolder:

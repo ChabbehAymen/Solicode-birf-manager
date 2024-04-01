@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+}
+main{
+    height: 100vh;
+}
+.login-img-holder{
+    margin: 0;
+    background-image: url('https://img.freepik.com/free-vector/key-concept-illustration_114360-6305.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

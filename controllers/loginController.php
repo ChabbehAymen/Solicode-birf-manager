@@ -11,25 +11,26 @@ if (isset($_POST["login"])) {
 
     $teacher = $model->getTeachersByEmail($email);
     $student = $model->getStudentByEmail($email);
-
     if(!empty($teacher) || $teacher !== false){
-
         if ($password === $teacher["MOT_DE_PASSE"]) {
             $_SESSION['user'] = ['type'=>'T','id'=>$teacher["ID_FORMATEUR"]];
-            // login to dashboard
+            Router::route("/");
         }else{
             ReportHandler::setRepoet(ReportHandler::$INCORRECT_PASS);
         }
     }elseif(!empty($student) || $student !== false){
         if ($password === $student["MOT_DE_PASSE"]) {
             $_SESSION['user'] = ['type'=>'S','id'=>$student["ID_APPRENANT"]];
-            // login to dashboard
+            // Router::route("/");
         }else{
             ReportHandler::setRepoet(ReportHandler::$INCORRECT_PASS);
         }
+    }elseif ((empty($teacher) || $teacher === false)&&(empty($student) || $student === false)) {
+        ReportHandler::setRepoet(ReportHandler::$NO_USER_FOUND);
+    } {
     }
-    ReportHandler::setRepoet(ReportHandler::$NO_USER_FOUND);
+    
 }
-Router::route("login");
+// Router::route("login");
 
 

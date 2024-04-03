@@ -5,18 +5,16 @@ create table APPRENANT
    ID_GROUPE            int not null,
    NOM                  varchar(256) not null,
    PRENOM               varchar(256) not null,
-   EMAIL                varchar(256) not null,
+   EMAIL                varchar(256) not null unique,
    MOT_DE_PASSE         varchar(256) not null,
    primary key (ID_APPRENANT)
 );
-
 create table BRIEF
 (
    ID_BRIEF             int not null auto_increment,
    ID_FORMATEUR         int not null,
    TITRE                varchar(256) not null,
-   DATE_DEBUT           date not null,
-   DATE_FIN             date not null,
+   DUREE                int not null,
    PIECE_JOINTE         varchar(256) not null,
    DATE_AJOUTE          date not null,
    primary key (ID_BRIEF)
@@ -24,7 +22,8 @@ create table BRIEF
 create table COMPETENCE
 (
    ID_COMPETENCE        int not null auto_increment,
-   NOM                  varchar(256) not null,
+   NOM                  varchar(10) not null,
+   DESCRIPTION          varchar(256) not null,
    primary key (ID_COMPETENCE)
 );
 
@@ -40,7 +39,7 @@ create table FORMATEUR
    ID_FORMATEUR         int not null auto_increment,
    NOM                  varchar(256) not null,
    PRENOM               varchar(256) not null,
-   EMAIL                varchar(256) not null,
+   EMAIL                varchar(256) not null unique,
    MOT_DE_PASSE         varchar(256) not null,
    primary key (ID_FORMATEUR)
 );
@@ -60,6 +59,7 @@ create table REALISER
    ID_BRIEF             int not null,
    ETAT                 varchar(256) not null,
    LIEN                 varchar(256),
+   DATE_DEBUT           date not null,
    DATE_AJOUTE          date,
    primary key (ID_APPRENANT, ID_BRIEF)
 );

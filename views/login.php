@@ -44,11 +44,4 @@
 
 
 <!-- this for the dashboard page to not repete it
-    <nav class="w-40 flex flex-column gap-3.5 p-3">
-    <a class="bg-blue-500 text-white p-2.5 rounded" href="">Dashboard</a>
-    <a class="bg-white text-blue-500 p-2.5 rounded" href="">Students</a>
-    <a class="bg-white text-blue-500 p-2.5 rounded" href="">Create Project</a>
-    <a class="bg-white text-blue-500 p-2.5 rounded" href="">Projects</a>
-    <hr>
-    <a class="bg-white text-blue-500 p-2.5 rounded" href="">Log out</a>
 </nav> -->

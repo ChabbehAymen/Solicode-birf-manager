@@ -2,7 +2,7 @@
 class Router
 {
     // this array hold every route page in the application
-    private static $routes = ['/'=>'/', 'error'=>'/404','login'=>'/login' ];
+    private static $routes = ['/'=>'/BP15/', 'error'=>'/BP15/404','login'=>'/BP15/login', 'main'=>'/BP15/main' ];
 
     public static function route(string $destination, array $params = null ):void
     {

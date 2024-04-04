@@ -3,6 +3,6 @@ class DbConfModel
 {
     protected $pdo;
     public function __construct(){
-        $this->pdo = new PDO('mysql:host=localhost;dbname=BP15;charset=UTF8', 'root', 'A20002024', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+        $this->pdo = new PDO('mysql:host=localhost;dbname=BP15;charset=UTF8', 'root', '', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
     }
 }

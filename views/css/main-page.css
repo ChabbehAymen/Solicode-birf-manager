@@ -1,0 +1,6 @@
+.dashboard-img-holder{
+    background-image: url(views/images/dashboard.svg);
+    height: 1rem;
+    width: 1rem;
+    fill: white;
+}

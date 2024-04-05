@@ -58,7 +58,7 @@ session_start();
     </nav>
     <main>
         <?php
-        if (isset($_GET['page_name'])) PagesController::LoadePage($_GET['page_name']);
+        if (isset($_GET['page'])) PagesController::LoadePage($_GET['page']);
         elseif ($_SESSION['user']['type'] === "T") PagesController::LoadePage('t-dashboard');
         else PagesController::LoadePage('s-dashboard');
         ?>

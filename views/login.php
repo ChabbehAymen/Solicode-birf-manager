@@ -1,5 +1,10 @@
-<?php require_once(dirname(dirname(__FILE__)) ."/Helpers/ReportHandler.php");?>
-<?php session_start();?>
+<?php 
+require_once(dirname(dirname(__FILE__)) ."/Helpers/ReportHandler.php");
+require_once(dirname(dirname(__FILE__)) ."/Helpers/Router.php");
+session_start();
+
+if(isset($_SESSION['user'])) Router::route('main');
+?>
 
 <!doctype html>
 <html lang="en">

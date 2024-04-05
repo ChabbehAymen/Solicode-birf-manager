@@ -1,6 +1,18 @@
-.dashboard-img-holder{
-    background-image: url(views/images/dashboard.svg);
-    height: 1rem;
-    width: 1rem;
-    fill: white;
+*{
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    padding: 3vh;
+}
+.selected-tab{
+    background-color: rgb(59 130 246 / 200);
+    border-radius: 0.50rem;
+    color: white;
+}
+
+svg{
+    width: 1.5rem;
+    height: 1.5rem;
 }

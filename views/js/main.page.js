@@ -1,21 +1,16 @@
 const navLinks = document.querySelectorAll("nav span");
 
 navLinks.forEach((selectedElement) => {
-selectedElement.addEventListener("click", (e) => {
-  selectedElement.querySelector("svg").style.fill = "white";
-    selectedElement.classList.add("selected-tab");
+  if (selectedElement.classList.contains("selected-tab")) {
+    console.log(selectedElement);
+    selectedElement.querySelector("svg").style.fill = "white";
     selectedElement.classList.remove("text-blue-500");
-    toggleOfUnselectedTabs();
+  } else {
+    selectedElement.classList.add("text-blue-500");
+  }
+  // ajax for page requireing
+  selectedElement.addEventListener("click", (e) => {
+    console.log(selectedElement);
+    window.location.href = `main?page=${selectedElement.id}`
   });
 });
-
-function toggleOfUnselectedTabs(){
-    navLinks.forEach((element) => {
-        if (element != selectedElement) {
-          element.classList.remove("selected-tab");
-          element.classList.add("text-blue-500");
-          element.querySelector("svg").style.fill = "rgb(59 130 246 / 500)";
-          console.log(element.querySelector("svg"));
-        }
-      });
-}

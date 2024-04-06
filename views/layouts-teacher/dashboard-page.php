@@ -29,44 +29,10 @@
                 </div>
             </div>
             <div class="w-1/6">
-                <a class=" w-min badge bg-blue-500" href="">
-                    View
-                </a>
             </div>
         </div>
 
-        <!-- Table Row -->
-        <div class="w-full flex py-1 px-2 justify-between">
-            <div class="w-1/4">Name</div>
-            <div class="w-1/4">Date</div>
-            <div class="w-1/4">
-                <div class="badge bg-red-200">
-                    Status
-                </div>
-            </div>
-            <div class="w-1/6">
-                <a class=" w-min badge bg-blue-500" href="">
-                    View
-                </a>
-            </div>
-        </div>
-
-        <!-- Table Row -->
-        <div class="w-full flex py-1 px-2 justify-between">
-            <div class="w-1/4">Name</div>
-            <div class="w-1/4">Date</div>
-            <div class="w-1/4">
-                <div class="badge bg-red-200">
-                    Status
-                </div>
-            </div>
-            <div class="w-1/6">
-                <a class=" w-min badge bg-blue-500" href="">
-                    View
-                </a>
-            </div>
-        </div>
-
+        
     </div>
 
 </div>
@@ -84,22 +50,22 @@
                 dataPoints: [{
                         y: 79.45,
                         label: "To DO",
-                        color:"rgb(59 130 246 / 500)"
+                        color: "rgb(59 130 246 / 500)"
                     },
                     {
                         y: 7.31,
                         label: "Doing",
-                        color:""
+                        color: ""
                     },
                     {
                         y: 7.06,
                         label: "Done",
-                        color:""
+                        color: ""
                     },
                     {
                         y: 4.91,
                         label: "Not Completed",
-                        color:""
+                        color: ""
                     }
                 ]
             }]

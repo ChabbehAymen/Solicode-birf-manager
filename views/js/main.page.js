@@ -8,9 +8,7 @@ navLinks.forEach((selectedElement) => {
   } else {
     selectedElement.classList.add("text-blue-500");
   }
-  // ajax for page requireing
   selectedElement.addEventListener("click", (e) => {
-    console.log(selectedElement);
     window.location.href = `main?page=${selectedElement.id}`
   });
 });

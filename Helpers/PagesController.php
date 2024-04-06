@@ -1,7 +1,7 @@
 <?php
 class PagesController
 {
-    private static $pages = ['t-dashboard'=>'/views/layouts-teacher/dashboard-page.php', 'student'=>'/views/layouts-teacher/students-page.php', 'projects'=>'/views/layouts-teacher/projects-page.php', 'create-project'=>'/views/layouts-teacher/create-project-page.php'];
+    private static $pages = ['dashboard'=>'/views/layouts-teacher/dashboard-page.php', 'student'=>'/views/layouts-teacher/students-page.php', 'projects'=>'/views/layouts-teacher/projects-page.php', 'create-project'=>'/views/layouts-teacher/create-project-page.php'];
 
     static function LoadePage(string $name)
     {

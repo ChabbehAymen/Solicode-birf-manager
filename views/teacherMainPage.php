@@ -58,7 +58,7 @@ session_start();
             </svg>
             Log out</a>
     </nav>
-    <main class="w-full ml-64"  >
+    <main class="w-full ml-64 pb-8"  >
         <?php
         if (isset($_GET['page'])) PagesController::LoadePage($_GET['page']);
         elseif ($_SESSION['user']['type'] === "T") PagesController::LoadePage('dashboard');

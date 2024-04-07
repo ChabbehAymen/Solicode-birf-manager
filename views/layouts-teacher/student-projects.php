@@ -1,3 +1,6 @@
+<?php require_once(dirname(dirname(dirname(__FILE__))).'/controllers/StudentsController.php'); ?>
+
+<?php if(!empty($studentProjects)):?>
 <div class="w-full mt-3 mb-11">
     <div class="shadow-sm p-1 rounded-sm w-max ">
         <i class="fa-solid fa-magnifying-glass" style="opacity:50%;"></i>
@@ -19,11 +22,8 @@
     <p class="rounded-pill w-max border border-dark p-2">C1:maket</p>
   </div>
 </div>
-
-<!-- <div class="rounded-lg w-max border shadow-sm card" style="width: 20rem;">
-    <img src="" class="card-img-top" >
-    <div class="card-body">
-        <h1 class="card-title">BP15</h1>
-        <h1 class="" >hoohlk</h1>
-    </div>
-</div> -->
+<?php elseif(empty($studentProjects)):?>
+    <div class="w-full d-flex align-items-center justify-content-center">
+<img src="https://img.freepik.com/free-vector/no-data-concept-illustration_114360-616.jpg?size=626&ext=jpg" class="h-1/2">
+</div>
+<?php endif?>

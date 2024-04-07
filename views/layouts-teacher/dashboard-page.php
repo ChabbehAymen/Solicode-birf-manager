@@ -50,22 +50,22 @@
                 dataPoints: [{
                         y: 79.45,
                         label: "To DO",
-                        color: "rgb(59 130 246 / 500)"
+                        color: "gray"
                     },
                     {
                         y: 7.31,
                         label: "Doing",
-                        color: ""
+                        color: "green"
                     },
                     {
                         y: 7.06,
                         label: "Done",
-                        color: ""
+                        color: "rgb(59 130 246 / 500)"
                     },
                     {
                         y: 4.91,
                         label: "Not Completed",
-                        color: ""
+                        color: "red"
                     }
                 ]
             }]

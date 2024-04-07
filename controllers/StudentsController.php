@@ -5,3 +5,5 @@ require_once dirname(dirname(__FILE__)).'/models/StudentsModel.php';
 $studentsRepo = new StudentsRepository(new StudentsModel());
 
 $allStudents = $studentsRepo->getAll($_SESSION['user']['id']);
+
+$studentProjects = $studentsRepo->getOne($_GET['id'] = 0);

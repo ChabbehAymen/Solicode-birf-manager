@@ -14,7 +14,7 @@ switch (strtok($url, '?')){
         require $viewsFolder.'404.php';
         break;
     case $baseFolder.'main':
-        require $viewsFolder.'mainPage.php';
+        require $viewsFolder.'teacherMainPage.php';
         break;
     default:
         require $viewsFolder.'404.php';

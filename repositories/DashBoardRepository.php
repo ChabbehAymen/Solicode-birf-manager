@@ -16,6 +16,19 @@ class DashBoardRepository extends BaseRepository
     {
         return $this->model->getOne($params);
     }
+
+    public function getAllAssignedBrifs(int $teacherID): array | bool
+    {
+        return $this->model->getAllAssignedBrifs($teacherID);
+        
+    }
+
+    public function getStudentsStatusByBrif(int $teacherID,string $brif): array | bool
+    {
+        return $this->model->getStudentsBrifStatus($teacherID, $brif);
+    }
+
+    // There is no use for update function in this repo
     public function update(mixed $params = null): array|bool
     {
         return false;

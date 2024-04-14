@@ -24,5 +24,12 @@ class ProjectsModel extends DbConfModel
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
         return !empty($result) || $result === true;
     }
+
+    function getCompeteces(int $idBrief): array|bool
+    {
+        $query = $this->pdo->prepare("SELECT NOM AS N FROM COMPETENCE INNER JOIN CONCERNE USING(ID_COMPETENCE) WHERE ID_BRIEF = :ID");
+        $query->execute(array('ID'=>$idBrief));
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
     
 }

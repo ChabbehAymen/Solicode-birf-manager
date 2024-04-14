@@ -22,6 +22,10 @@ class ProjectsRepository extends BaseRepository
         return $this->model->idBrifAssined($teacherID, $projectID);
     }
 
+    public function getCompetences(int $idBrief){
+        return $this->model->getCompeteces($idBrief);
+    }
+
     public function update(mixed $params = null): array|bool
     {
         return false;

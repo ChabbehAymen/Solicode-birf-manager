@@ -20,3 +20,11 @@ svg{
 .students-search-input:focus{
     outline: none;
 }
+
+.img-input-label{
+    height: 15rem;
+    background-image: url('https://placehold.co/600x400/png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

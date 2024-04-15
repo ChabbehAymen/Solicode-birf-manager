@@ -6,7 +6,7 @@ class ProjectsModel extends DbConfModel
 {
 
     function getAll(string $year){
-        $query = $this->pdo->prepare("SELECT ID_BRIEF, TITRE, DATE_DEBUT, DATE_FIN, PIECE_JOINTE, DATE_AJOUTE, COMPETENCE.NOM AS C, (SELECT NOM FROM FORMATEUR WHERE FORMATEUR.ID_FORMATEUR = BRIEF.ID_FORMATEUR) AS T FROM BRIEF INNER JOIN BP15.CONCERNE USING (ID_BRIEF) INNER JOIN COMPETENCE USING(ID_COMPETENCE) WHERE YEAR(BRIEF.DATE_AJOUTE) = :tYear");
+        $query = $this->pdo->prepare("SELECT ID_BRIEF, TITRE, BRIEF.DATE_AJOUTE, PIECE_JOINTE, (SELECT NOM FROM FORMATEUR WHERE FORMATEUR.ID_FORMATEUR = BRIEF.ID_FORMATEUR) AS T FROM BRIEF WHERE YEAR(BRIEF.DATE_AJOUTE) = :tYear");
         $query->execute(array('tYear' => $year));
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -25,10 +25,17 @@ class ProjectsModel extends DbConfModel
         return !empty($result) || $result === true;
     }
 
-    function getCompeteces(int $idBrief): array|bool
+    function getCompetecesByBrief(int $idBrief): array|bool
     {
         $query = $this->pdo->prepare("SELECT NOM AS N FROM COMPETENCE INNER JOIN CONCERNE USING(ID_COMPETENCE) WHERE ID_BRIEF = :ID");
         $query->execute(array('ID'=>$idBrief));
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function getCompetences(): array|bool
+    {
+        $query = $this->pdo->prepare("SELECT NOM , DESCRIPTION FROM COMPETENCE");
+        $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
     

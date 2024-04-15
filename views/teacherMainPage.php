@@ -1,6 +1,8 @@
 <?php
 require_once(dirname(dirname(__FILE__)) . '/Helpers/PagesController.php');
+require_once(dirname(dirname(__FILE__)) . '/Helpers/Router.php');
 session_start();
+if (empty($_SESSION['user'])) Router::route('login');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,7 +60,7 @@ session_start();
             </svg>
             Log out</a>
     </nav>
-    <main class="w-full ml-64 pb-8"  >
+    <main class="w-full ml-72 pb-8"  >
         <?php
         if (isset($_GET['page'])) PagesController::LoadePage($_GET['page']);
         elseif ($_SESSION['user']['type'] === "T") PagesController::LoadePage('dashboard');

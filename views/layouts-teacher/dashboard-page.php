@@ -1,5 +1,5 @@
 <?php require_once(dirname(dirname(dirname(__FILE__))) . '/controllers/dashboardController.php'); ?>
-<h1 class="">Hello <?=$getTeacherName[0]['NOM'] ?></h1>
+<h1 class="">Hello <?=$getTeacherName[0]['NOM']?></h1>
 
 <form action="" method="post">
     <select name="selected-brif" class="bg-blue-500 p-2 my-3 rounded text-white" onchange="this.form.submit()">

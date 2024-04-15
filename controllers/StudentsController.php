@@ -6,4 +6,4 @@ $studentsRepo = new StudentsRepository(new StudentsModel());
 
 $allStudents = $studentsRepo->getAll($_SESSION['user']['id']);
 
-$studentProjects = $studentsRepo->getOne($_GET['id'] = 0);
+empty($_GET['id'])?$studentsRepo = '':$studentProjects = $studentsRepo->getOne($_GET['id']);

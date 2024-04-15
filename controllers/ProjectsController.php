@@ -20,20 +20,11 @@ function getBriefCompetences(int $idBrief)
 
 if (isset($_POST['create'])) {
 
-    // var_dump($_POST);
-    $imgFileName = './views/images/'.$_FILES['img-file']['name'];
-    $pdfFileName = './views/files/'.$_FILES['atatchment']['name'];
+    $imgFileName = dirname(dirname(__FILE__)).'/views/images/'.$_FILES['img-file']['name'];
+    $pdfFileName = dirname(dirname(__FILE__)).'/views/files/'.$_FILES['atatchment']['name'];
 
     $imgTempFile = $_FILES['img-file']['tmp_name'];
     $pdfTempFile = $_FILES['atatchment']['tmp_name'];
-
-    var_dump($imgFileName);
-
-    if (move_uploaded_file($imgTempFile, $imgFileName) && move_uploaded_file($pdfTempFile,$pdfFileName)) {
-
-        $msg = "Image uploaded successfully";
-    } else {
-
-        $msg = "Failed to upload image";
-    }
+    move_uploaded_file($pdfTempFile,$pdfFileName); // upload pdf
+    move_uploaded_file($imgTempFile, $imgFileName);// upload imge
 }

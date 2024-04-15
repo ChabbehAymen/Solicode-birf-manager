@@ -26,7 +26,20 @@ document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
     document.querySelector(".comps-container").innerHTML = "";
     checkBoxes.forEach((e) => {
       document.querySelector(".comps-container").innerHTML += `
-      <p class="rounded-pill w-max border border-dark p-2 form-text text-black">${e.value}</p>`;
+      <p class="rounded-pill w-max border border-dark py-2 px-4 form-text text-black">${e.value}</p>`;
     });
   });
 });
+
+document
+  .querySelector('input[name="create"]')
+  .addEventListener("click", (e) => {
+    if (document.querySelector('input[name="img-file"]').value === "")
+      document.querySelector(".img-file-error").style.display = "block";
+    if (
+      document.querySelectorAll('input[type="checkbox"]:checked').length <= 0
+    ) {
+      e.preventDefault();
+      document.querySelector(".check-box-error").style.display = "block";
+    }
+  });

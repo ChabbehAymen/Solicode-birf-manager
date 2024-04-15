@@ -4,14 +4,15 @@
     <div class="w-50 h-full pb-">
         <form action="" method="POST" enctype="multipart/form-data" >
             <div></div>
-            <label class="mb-11 w-80 mb-8 rounded cursor-pointer img-input-label" for="img-input">
-                <input type="file" class="form-control w-1/2 mb-8 hidden" name="img-file" accept="image/png, image/jpeg" name="img" id="img-input">
+            <label class="w-80 rounded cursor-pointer img-input-label" for="img-input">
+                <input type="file" class="form-control w-1/2 mb-8 hidden" name="img-file" accept="image/png, image/jpeg" name="img" id="img-input" required >
             </label>
-            <input type="text" name="title" class="form-control w-1/2 mb-8" placeholder="Title">
-            <input type="number" min="1" name="duration" class="form-control w-1/2 mb-8" placeholder="Duration(Days)">
+            <p class="mb-11 w-80 text-center text-danger hidden img-file-error">You Must Select An Image For Biref</p>
+            <input type="text" name="title" class="form-control w-1/2 mb-8" placeholder="Title" required >
+            <input type="number" min="1" name="duration" class="form-control w-1/2 mb-8" placeholder="Duration(Days)" required >
             <label for="" class="w-1/2">
                 Atatchment
-                <input type="file" name="atatchment" name="pdf-file" class="form-control mb-8" placeholder="Upload PDF" accept="application/pdf" >
+                <input type="file" name="atatchment" class="form-control mb-8" accept="application/pdf" required >
             </label>
             <hr class="w-1/2 m-auto">
             <div class="mt-4">
@@ -23,6 +24,7 @@
                 <?php foreach($avaliableCompetemces as $competence):?>
                 <label for=""><input type="checkbox" name="com-box" value=<?=$competence['NOM']?> > <?=$competence['NOM']?>: <?=$competence['DESCRIPTION']?> </label>
                 <?php endforeach?>
+                <p class="w-80 text-center text-danger hidden check-box-error">You Must Select One Competence</p>
             </div>
             <input type="submit" value="Create" name="create" class="btn btn-primary mb-11 mt-11" >
         </form>

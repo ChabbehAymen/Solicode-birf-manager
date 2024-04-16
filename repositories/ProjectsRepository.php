@@ -30,6 +30,22 @@ class ProjectsRepository extends BaseRepository
         return $this->model->getCompetences();
     }
 
+
+    public function insertBrief(array $breif){
+        return $this->model->insertBrief($breif);
+    }
+
+    public function insertCompetance(int $idComp){
+        return $this->model->insertCmpt($idComp);
+    }
+
+    public function assigneProject(int $tID, int $idBrief)
+    {
+        foreach ($this->model->getAllstudents($tID) as $student) {
+            $this->model->assigneBrief($idBrief, $student['ID']);
+        }
+    }
+
     public function update(mixed $params = null): array|bool
     {
         return false;

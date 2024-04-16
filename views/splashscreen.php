@@ -1,11 +1,19 @@
+<?php
+require_once(dirname(dirname(__FILE__)) . "/Helpers/Router.php");
+session_start();
+
+if (isset($_SESSION['user'])) Router::route('main'); 
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SplashScreen</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
+
 <body style="overflow: hidden;">
     <div class="container-fluid">
         <div class="row">
@@ -28,11 +36,12 @@
                         <strong>“The whole purpose of education is to turn mirrors into windows.” —Sydney J. Harris</strong>
                     </div>
                     <div class="p-1">
-                        <a class="btn btn-primary" href="login" >Start Brifing</a>
+                        <a class="btn btn-primary" href="login">Start Brifing</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</body> 
+</body>
+
 </html>

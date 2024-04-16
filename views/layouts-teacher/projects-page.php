@@ -29,7 +29,7 @@
           <?php foreach (getBriefCompetences($brief['ID_BRIEF']) as $c) : ?>
             <p class="rounded-pill w-max border border-dark p-2"><?= $c['N'] ?></p>
           <?php endforeach ?>
-          <form class="mt-3 flex w-full justify-between" action="">
+          <form class="mt-3 flex w-full justify-between" action="" method="POST" >
             <?php if (!isBriefAssigned(intval($brief['ID_BRIEF']))) : ?>
               <input type="submit" value="Assign" name="assign" class="py-1 px-3 rounded-lg text-white bg-blue-500">
               <input type="text" name="idBrief" value=<?= $brief['ID_BRIEF'] ?> class="hidden">

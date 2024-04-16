@@ -27,7 +27,7 @@ class DashboardModel extends DbConfModel
 
     public function getStudentsBrifStatus(int $teacherID, string $brifTitel): array | bool
     {
-        $sql = $this->pdo->prepare("SELECT APPRENANT.NOM, APPRENANT.PRENOM, REALISER.ETAT, REALISER.DATE_AJOUTE FROM REALISER 
+        $sql = $this->pdo->prepare("SELECT APPRENANT.NOM, APPRENANT.PRENOM, REALISER.ETAT, REALISER.COMPLETE_DATE FROM REALISER 
                                     INNER JOIN BRIEF USING (ID_BRIEF) INNER JOIN BP15.APPRENANT USING(ID_APPRENANT) 
                                     WHERE ID_FORMATEUR = :ID AND BRIEF.TITRE = :TITRE");
         $sql->execute(array('ID' => $teacherID, "TITRE" => $brifTitel));

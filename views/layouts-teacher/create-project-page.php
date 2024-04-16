@@ -22,7 +22,7 @@
             </div>
             <div class="flex flex-column mt-3 mb-3">
                 <?php foreach($avaliableCompetemces as $competence):?>
-                <label for=""><input type="checkbox" name="com-box" value=<?=$competence['NOM']?> > <?=$competence['NOM']?>: <?=$competence['DESCRIPTION']?> </label>
+                <label for=""><input type="checkbox" name="com-box[]" value=<?=$competence['ID_COMPETENCE']?> id=<?=$competence['NOM']?> > <?=$competence['NOM']?>: <?=$competence['DESCRIPTION']?> </label>
                 <?php endforeach?>
                 <p class="w-80 text-center text-danger hidden check-box-error">You Must Select One Competence</p>
             </div>
@@ -42,7 +42,8 @@
                 </h1>
                 <hr class="mx-2 my-3">
                 <h1 class="card-subtitle mb-2">Competence</h1>
-                <p class="rounded-pill w-max border border-dark p-2 form-text text-black">C1:maket</p>
+                <div class=" flex flex-wrap gap-2 comps-container" >
+                </div>
                 <input type="submit" value="Assign" class="py-1 px-3 rounded-lg text-white bg-blue-500 mt-3">
             </div>
         </div>

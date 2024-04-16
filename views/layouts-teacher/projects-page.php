@@ -18,18 +18,26 @@
   <div class="mb-8 flex flex-wrap gap-4">
     <!-- Project Card -->
     <?php foreach ($allBrifs as $brief) : ?>
+
       <div class="card rounded-lg shadow-sm relative " style="width: 20rem;">
-        <img src="http://localhost/BP15/views/images/TeacherClass.png" class="card-img-top">
+        <img src="./views/images/<?= $brief['IMAG'] ?>" class="card-img-top">
         <div class="card-body">
           <h5 class="card-title mb-2 font-bold"><?= $brief['TITRE'] ?></h5>
           <h1 class="card-subtitle mb-2"><?= $brief['DATE_AJOUTE'] ?></h1>
-          <a class="text-secondary" href=""><?= $brief['PIECE_JOINTE'] ?></a>
+          <div class="flex gap-4 px-4">
+            <a class="flex py-1 px-11 rounded border w-max mx-auto gap-3" target="_blank" href="./views/files/<?= $brief['PIECE_JOINTE'] ?>">
+              <img src="https://cdn-icons-png.flaticon.com/128/13/13413.png" class="h-6">
+            </a>
+            <a class="flex py-1 px-11 rounded border w-50 mx-auto gap-3" download href="./views/files/<?= $brief['PIECE_JOINTE'] ?>">
+              <img src="https://cdn-icons-png.flaticon.com/128/4529/4529917.png" class="h-6">
+            </a>
+          </div>
           <hr class="mx-2 my-3">
           <h1 class="card-subtitle mb-2">Competence</h1>
           <?php foreach (getBriefCompetences($brief['ID_BRIEF']) as $c) : ?>
             <p class="rounded-pill w-max border border-dark p-2"><?= $c['N'] ?></p>
           <?php endforeach ?>
-          <form class="mt-3 flex w-full justify-between" action="" method="POST" >
+          <form class="mt-3 flex w-full justify-between" action="" method="POST">
             <?php if (!isBriefAssigned(intval($brief['ID_BRIEF']))) : ?>
               <input type="submit" value="Assign" name="assign" class="py-1 px-3 rounded-lg text-white bg-blue-500">
               <input type="text" name="idBrief" value=<?= $brief['ID_BRIEF'] ?> class="hidden">

@@ -17,10 +17,7 @@ switch (strtok($url, '?')){
         require $viewsFolder.'teacherMainPage.php';
         break;
     case $baseFolder.'mainStudent':
-        require $viewsFolder.'StudentPage.php';
-        break;
-    case $baseFolder.'UpdateStatus':
-        require $viewsFolder.'layout-student/UpdateStatus.php';
+        require $viewsFolder.'studentMainPage.php';
         break;
     default:
         require $viewsFolder.'404.php';

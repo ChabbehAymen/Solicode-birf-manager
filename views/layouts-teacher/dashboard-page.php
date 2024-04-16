@@ -21,14 +21,14 @@
     <!-- Table Body -->
     <div class="w-full">
         <!-- Table Row -->
-        <?php foreach ($studentsStatus as $student) : ?>
+        <?php foreach ($studentsStatus as $brief) : ?>
             <div class="w-full flex py-1 px-2 justify-between mtable-row">
-                <div class="w-1/4"><?= $student['NOM'] ?> <?= $student['PRENOM'] ?></div>
-                <div class="w-1/4"><?= $student['DATE_AJOUTE'] ?></div>
+                <div class="w-1/4"><?= $brief['NOM'] ?> <?= $brief['PRENOM'] ?></div>
+                <div class="w-1/4"><?= $brief['COMPLETE_DATE']==='0000-00-00'?'-- -- --': $brief['COMPLETE_DATE']?></div>
                 <div class="w-1/4">
                     <?php
                     $bdg = 'bg-gray-400';
-                    switch ($student['ETAT']) {
+                    switch ($brief['ETAT']) {
                         case 'DONE':
                             $bdg = 'bg-blue-500';
                             break;
@@ -41,7 +41,7 @@
                     }
                     ?>
                     <div class="badge <?= $bdg ?>">
-                        <?= $student['ETAT'] ?>
+                        <?= $brief['ETAT'] ?>
                     </div>
                 </div>
                 <div class="w-1/6">

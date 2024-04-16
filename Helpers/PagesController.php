@@ -5,7 +5,9 @@ class PagesController
     'students'=>'/views/layouts-teacher/students-page.php', 
     'projects'=>'/views/layouts-teacher/projects-page.php', 
     'create-project'=>'/views/layouts-teacher/create-project-page.php',
-    'student-projects'=>'/views/layouts-teacher/student-projects.php'
+    'student-projects'=>'/views/layouts-teacher/student-projects.php',
+    's-allProjects' =>'/views/layouts-student/allProjectsPage.php',
+    'onBoard'=>'/views/layouts-student/onBoardPage.php'
 ];
 
     static function LoadePage(string $name)

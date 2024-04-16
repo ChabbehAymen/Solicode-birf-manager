@@ -23,10 +23,14 @@ document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
     let checkBoxes = document.querySelectorAll(
       'input[type="checkbox"]:checked'
     );
-    document.querySelector(".comps-container").innerHTML = "";
+    document.querySelectorAll(".comps-container").forEach((e) => {
+      e.innerHTML = "";
+    });
     checkBoxes.forEach((e) => {
-      document.querySelector(".comps-container").innerHTML += `
-      <p class="rounded-pill w-max border border-dark py-2 px-4 form-text text-black">${e.value}</p>`;
+      document.querySelectorAll(".comps-container").forEach((card) => {
+        card.innerHTML += `
+        <p class="rounded-pill w-max border border-dark py-2 px-4 form-text text-black">${e.id}</p>`;
+      });
     });
   });
 });

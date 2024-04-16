@@ -7,7 +7,7 @@ class ProjectsModel extends DbConfModel
 
     function getAll(string $year)
     {
-        $query = $this->pdo->prepare("SELECT ID_BRIEF, TITRE, BRIEF.DATE_AJOUTE, PIECE_JOINTE, (SELECT NOM FROM FORMATEUR WHERE FORMATEUR.ID_FORMATEUR = BRIEF.ID_FORMATEUR) AS T FROM BRIEF WHERE YEAR(BRIEF.DATE_AJOUTE) = :tYear");
+        $query = $this->pdo->prepare("SELECT ID_BRIEF, TITRE, BRIEF.DATE_AJOUTE, PIECE_JOINTE,IMAG, (SELECT NOM FROM FORMATEUR WHERE FORMATEUR.ID_FORMATEUR = BRIEF.ID_FORMATEUR) AS T FROM BRIEF WHERE YEAR(BRIEF.DATE_AJOUTE) = :tYear");
         $query->execute(array('tYear' => $year));
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -36,7 +36,7 @@ class ProjectsModel extends DbConfModel
 
     function getCompetences(): array|bool
     {
-        $query = $this->pdo->prepare("SELECT NOM , DESCRIPTION FROM COMPETENCE");
+        $query = $this->pdo->prepare("SELECT ID_COMPETENCE  ,NOM , DESCRIPTION FROM COMPETENCE");
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }

@@ -26,6 +26,7 @@ if (isset($_POST['assign'])) {
 
 if (isset($_POST['create'])) {
 
+    var_dump($_POST);
     $title = $_POST['title'];
     $duration = $_POST['duration'];
     $comBox = $_POST['com-box'];
@@ -37,5 +38,8 @@ if (isset($_POST['create'])) {
 
     move_uploaded_file($pdfTempFile,$pdfFileName); // upload pdf
     move_uploaded_file($imgTempFile, $imgFileName);// upload imge
-    $projectsRepo->insertBrief(array('id'=>$_SESSION['user']['id'],'title'=>$title, 'duration'=>$duration, 'att'=>$pdfFileName, 'date'=>date('Y-m-d')));
+    $projectsRepo->insertBrief(array('id'=>$_SESSION['user']['id'],'title'=>$title, 'duration'=>$duration, 'att'=>$pdfFileName, 'date'=>'---'));
+    foreach($_POST['com-box'] as $com){
+        $projectsRepo->insertCompetance(intval($com));
+    }
 }

@@ -22,7 +22,7 @@ if (isset($_POST["login"])) {
     } elseif (!empty($student) || $student !== false) {
         if ($password === $student["MOT_DE_PASSE"]) {
             $_SESSION['user'] = ['type' => 'S', 'id' => $student["ID_APPRENANT"]];
-            // Router::route("/");
+            Router::route("mainStudent");
         } else {
             setInccorectPass();
         }

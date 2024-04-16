@@ -15,6 +15,11 @@ class StudentsRepository extends BaseRepository
     {
         return $this->model->getOne($params);
     }
+
+    public function getCompetences(int $idBreif){
+        return $this->model->getComp($idBreif);
+    }
+
     public function update(mixed $params = null): array|bool
     {
         return false;

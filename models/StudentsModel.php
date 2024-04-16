@@ -11,7 +11,7 @@ class StudentsModel extends DbConfModel
     }
 
     function getOne(int $studentId){
-        $query = $this->pdo->prepare("SELECT REALISER.ETAT, BRIEF.TITRE, REALISER.DATE_AJOUTE, BRIEF.PIECE_JOINTE FROM REALISER
+        $query = $this->pdo->prepare("SELECT REALISER.ETAT, BRIEF.TITRE, REALISER.DATE_AJOUTE, BRIEF.PIECE_JOINTE, BRIEF.ID_BRIEF FROM REALISER
         INNER  JOIN APPRENANT USING(ID_APPRENANT) INNER JOIN GROUPE USING (ID_GROUPE) INNER JOIN FORMATEUR USING (ID_FORMATEUR)
         INNER JOIN BRIEF USING (ID_BRIEF) 
         WHERE ID_APPRENANT = :ID;");
@@ -19,4 +19,9 @@ class StudentsModel extends DbConfModel
         return $query->fetchAll(PDO::FETCH_ASSOC);  
     }
     
+    function getComp(int $idBrief){
+        $query = $this->pdo->prepare("SELECT NOM AS N FROM COMPETENCE INNER JOIN CONCERNE USING(ID_COMPETENCE) WHERE ID_BRIEF = :ID");
+        $query->execute(array('ID' => $idBrief));
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

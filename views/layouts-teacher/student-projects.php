@@ -12,7 +12,7 @@
   <?php foreach($studentProjects as $student): ?>
   <!-- Project Card -->
   <div class="card rounded-lg shadow-sm relative " style="width: 20rem;">
-    <img src="https://placehold.co/600x400/png" class="card-img-top">
+    <img src="./views/images/TeacherClass.png" class="card-img-top">
     <div class="absolute badge bg-blue-300 right-0 m-2 "><?=$student['ETAT']?></div>
     <div class="card-body">
       <h5 class="card-title mb-2 font-bold"><?=$student['TITRE']?></h5>

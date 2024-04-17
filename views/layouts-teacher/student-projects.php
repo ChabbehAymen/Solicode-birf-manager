@@ -18,7 +18,7 @@
           <h5 class="card-title mb-2 font-bold"><?= $brief['TITRE'] ?></h5>
           <h1 class="card-subtitle mb-2">Assigned: <?= $brief['DATE_DEBUT'] ?></h1>
           <?php if ($brief['COMPLETE_DATE'] !== '0000-00-00') : ?>
-          <h1 class="card-subtitle mb-2">Submited: <?= $brief['COMPLETE_DATE'] ?></h1>
+            <h1 class="card-subtitle mb-2">Submited: <?= $brief['COMPLETE_DATE'] ?></h1>
           <?php endif ?>
           <div class="flex gap-4 px-4 mb-6">
             <a class="flex py-1 px-11 rounded border w-max mx-auto gap-3" target="_blank" href="./views/files/<?= $brief['PIECE_JOINTE'] ?>">
@@ -45,3 +45,11 @@
     <img src="https://img.freepik.com/free-vector/no-data-concept-illustration_114360-616.jpg?size=626&ext=jpg" class="h-1/2">
   </div>
 <?php endif ?>
+<script>
+  document.querySelector('input').addEventListener('input', e => {
+    document.querySelectorAll('.card').forEach(card => {
+      if (card.querySelector('.card-title').innerText.toLowerCase().includes(e.target.value.toLowerCase())) card.style.display = "block";
+      else card.style.display = "none";
+    });
+  });
+</script>

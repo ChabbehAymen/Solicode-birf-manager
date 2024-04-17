@@ -51,7 +51,7 @@ if (empty($_SESSION['user'])) Router::route('login');
         <?php
         if (isset($_GET['page'])) PagesController::LoadePage($_GET['page']);
         elseif ($_SESSION['user']['type'] === "T") PagesController::LoadePage('dashboard');
-        else PagesController::LoadePage('s-allProject');
+        else PagesController::LoadePage('s-allProjects');
         ?>
     </main>
 </body>

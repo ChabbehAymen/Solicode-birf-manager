@@ -19,9 +19,9 @@
     <div class="w-full">
         <!-- Table Row -->
         <?php foreach ($allStudents as $brief):?>
-        <div class="w-full flex py-2 px-2 justify-between tbody-row" id=<?=$brief['ID_APPRENANT']?>>
-            <div class="w-1/4"><?=$brief['NOM']?></div>
-            <div class="w-1/4"><?=$brief['PRENOM']?></div>
+        <div class="w-full flex py-2 px-2 justify-between tbody-row" id=<?=$brief['ID_APPRENANT']?> >
+            <div class="w-1/4 name"><?=$brief['NOM']?></div>
+            <div class="w-1/4 lastName"><?=$brief['PRENOM']?></div>
             <div class="w-1/4"><?=$brief['EMAIL']?></div>
             <div class="w-1/6">
                 <a class=" w-min text-white px-3 py-1 rounded-xl bg-blue-500 cursor-pointer">

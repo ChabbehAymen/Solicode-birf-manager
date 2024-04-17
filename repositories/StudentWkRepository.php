@@ -16,8 +16,20 @@ class StudentWkRepository extends BaseRepository
         return $this->model->getBrief($params);
     }
 
+    public function getStudentData(int $studentID){
+        return $this->model->getStudentAccount($studentID);
+    }
+
     public function getWorkingOnBrief(int $studentID){
-        return $this->model->getCurrentWorkingBrief($studentID);
+        return $this->model->getWorkingOnBriefs($studentID);
+    }
+
+    public function getCompetence(int $breifID){
+        return $this->model->getCompetence($breifID);
+    }
+
+    public function getWorkingOnBreifs(int $studentID){
+        return $this->model->getWorkingOnBriefs($studentID);
     }
 
     public function update(mixed $params = null): array|bool{

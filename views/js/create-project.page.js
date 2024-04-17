@@ -29,7 +29,7 @@ document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
     checkBoxes.forEach((e) => {
       document.querySelectorAll(".comps-container").forEach((card) => {
         card.innerHTML += `
-        <p class="rounded-pill w-max border border-dark py-2 px-4 form-text text-black">${e.id}</p>`;
+        <p class="rounded-pill w-max border border-dark px-3 form-text text-black">${e.id}</p>`;
       });
     });
   });

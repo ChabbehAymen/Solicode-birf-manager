@@ -34,7 +34,7 @@
           <hr class="mx-2 my-3">
           <h1 class="card-subtitle mb-2">Competence</h1>
           <?php foreach (getCompetences($brief['ID_BRIEF']) as $C) : ?>
-            <p class="rounded-pill w-max border border-dark p-2"><?= $C['N'] ?></p>
+            <p class="rounded-pill w-max border border-dark px-3"><?= $C['N'] ?></p>
           <?php endforeach ?>
         </div>
       </div>

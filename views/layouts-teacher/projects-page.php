@@ -45,7 +45,7 @@
           <hr class="mx-2 my-3">
           <h1 class="card-subtitle mb-2">Competence</h1>
           <?php foreach (getBriefCompetences($brief['ID_BRIEF']) as $c) : ?>
-            <p class="rounded-pill w-max border border-dark p-2"><?= $c['N'] ?></p>
+            <p class="rounded-pill w-max border border-dark px-3"><?= $c['N'] ?></p>
           <?php endforeach ?>
           <form class="mt-3 flex w-full justify-between" action="" method="POST">
             <?php if (!isBriefAssigned(intval($brief['ID_BRIEF']))) : ?>

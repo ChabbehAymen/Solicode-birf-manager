@@ -7,8 +7,16 @@ class ProjectsModel extends DbConfModel
 
     function getAll(string $year)
     {
-        $query = $this->pdo->prepare("SELECT ID_BRIEF, TITRE, BRIEF.DATE_AJOUTE, PIECE_JOINTE,IMAG, (SELECT NOM FROM FORMATEUR WHERE FORMATEUR.ID_FORMATEUR = BRIEF.ID_FORMATEUR) AS T FROM BRIEF WHERE YEAR(BRIEF.DATE_AJOUTE) = :tYear");
+        $query = $this->pdo->prepare("SELECT ID_BRIEF, TITRE, BRIEF.DATE_AJOUTE, PIECE_JOINTE,IMAG,DATE_DEBUT, (SELECT NOM FROM FORMATEUR WHERE FORMATEUR.ID_FORMATEUR = BRIEF.ID_FORMATEUR) AS T FROM BRIEF WHERE YEAR(BRIEF.DATE_AJOUTE) = :tYear");
         $query->execute(array('tYear' => $year));
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function briefDates(int $briefID){
+        $query = $this->pdo->prepare("SELECT DATE(DATE_DEBUT+DURATION) AS END_DATE, IF(DATEDIFF( DATE(DATE_DEBUT+DURATION), NOW()) < 0, 'ENDED', DATEDIFF( DATE(DATE_DEBUT+DURATION), NOW())) AS REST_DAYS
+        FROM REALISER INNER JOIN BRIEF USING(ID_BRIEF)
+        WHERE ID_BRIEF = :ID");
+        $query->execute(array('ID' => $briefID));
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 

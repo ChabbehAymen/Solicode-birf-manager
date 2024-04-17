@@ -1,12 +1,13 @@
 <?php require_once(dirname(dirname(dirname(__FILE__))) . '/controllers/dashboardController.php'); ?>
-<h1 class="">Hello <?=$getTeacherName[0]['NOM']?></h1>
 
-<form action="" method="post">
+<form class="w-full flex items-center" action="" method="post">
     <select name="selected-brif" class="bg-blue-500 p-2 my-3 rounded text-white" onchange="this.form.submit()">
         <?php foreach ($allAssignedBrifs as $brif) : ?>
             <option value=<?= '"' . $brif['TITRE'] . '"' ?> <?php if (!empty($_POST['selected-brif']) && $_POST['selected-brif'] === $brif['TITRE']) echo 'selected'; ?>><?= $brif['TITRE'] ?></option>
         <?php endforeach; ?>
     </select>
+
+    <div class="ml-auto border rounded py-1 px-4" ><?= $getTeacherName[0]['NOM'] ?> <?= $getTeacherName[0]['PRENOM'] ?>: <?= $getTeacherName[0]['EMAIL'] ?></div>
 </form>
 
 <!-- Students Table  -->
@@ -24,7 +25,7 @@
         <?php foreach ($studentsStatus as $brief) : ?>
             <div class="w-full flex py-1 px-2 justify-between mtable-row">
                 <div class="w-1/4"><?= $brief['NOM'] ?> <?= $brief['PRENOM'] ?></div>
-                <div class="w-1/4"><?= $brief['COMPLETE_DATE']==='0000-00-00'?'-- -- --': $brief['COMPLETE_DATE']?></div>
+                <div class="w-1/4"><?= $brief['COMPLETE_DATE'] === '0000-00-00' ? '-- -- --' : $brief['COMPLETE_DATE'] ?></div>
                 <div class="w-1/4">
                     <?php
                     $bdg = 'bg-gray-400';
@@ -78,7 +79,7 @@
                     break;
             }
         });
-        console.log((todo*100)/tableItems.length);
+        console.log((todo * 100) / tableItems.length);
         var chart = new CanvasJS.Chart("chartContainer", {
             animationEnabled: true,
             data: [{
@@ -87,22 +88,22 @@
                 yValueFormatString: "##0.00\"%\"",
                 indexLabel: "{label} {y}",
                 dataPoints: [{
-                        y: (todo*100)/tableItems.length,
+                        y: (todo * 100) / tableItems.length,
                         label: "To DO",
                         color: "rgb(156 163 175 / 400)"
                     },
                     {
-                        y: (doing*100)/tableItems.length,
+                        y: (doing * 100) / tableItems.length,
                         label: "Doing",
                         color: "rgb(74 222 128 / 400)"
                     },
                     {
-                        y: (done*100)/tableItems.length,
+                        y: (done * 100) / tableItems.length,
                         label: "Done",
                         color: "rgb(59 130 246 / 500)"
                     },
                     {
-                        y: (notCompleted*100)/tableItems.length,
+                        y: (notCompleted * 100) / tableItems.length,
                         label: "Not Completed",
                         color: "rgb(248 113 113 / 400)"
                     }

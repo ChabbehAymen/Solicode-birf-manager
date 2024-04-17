@@ -19,6 +19,11 @@ function getBriefCompetences(int $idBrief)
     return $projectsRepo->getCompetencesByBrief($idBrief);
 }
 
+function getBriefDate(int $briefID){
+    $projectsRepo = new ProjectsRepository(new ProjectsModel());
+    return $projectsRepo->getBriefDates($briefID);
+}
+
 if (isset($_POST['assign'])) {
     $projectsRepo->assigneProject($_SESSION['user']['id'],$_POST['idBrief']);
 }

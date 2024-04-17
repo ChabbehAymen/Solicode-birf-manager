@@ -16,6 +16,7 @@
 </div>
 <?php if (!empty($allBrifs)) : ?>
   <div class="mb-8 flex flex-wrap gap-4">
+    
     <!-- Project Card -->
     <?php foreach ($allBrifs as $brief) : ?>
 
@@ -23,7 +24,16 @@
         <img src="./views/images/<?= $brief['IMAG'] ?>" class="card-img-top">
         <div class="card-body">
           <h5 class="card-title mb-2 font-bold"><?= $brief['TITRE'] ?></h5>
-          <h1 class="card-subtitle mb-2"><?= $brief['DATE_AJOUTE'] ?></h1>
+          <?php if(isBriefAssigned(intval($brief['ID_BRIEF']))):?>
+          <h1 class="card-subtitle mb-2">Started On<?= $brief['DATE_DEBUT'] ?></h1>
+          <?php else:?>
+          <h1 class="card-subtitle mb-2">Created At: <?= $brief['DATE_AJOUTE'] ?></h1>
+          <?php endif?>
+          <?php if(!empty(getBriefDate($brief['ID_BRIEF']))):?>
+          <h1 class="card-subtitle mb-2"> Will End By:  <?= getBriefDate($brief['ID_BRIEF'])[0]['END_DATE'] ?></h1>
+          <h1 class="card-subtitle mb-2 days-holder">Still have <span class="days-indicator" > <?= getBriefDate($brief['ID_BRIEF'])[0]['REST_DAYS'] ?> </span> Days</h1>
+            
+          <?php endif?>
           <div class="flex gap-4 px-4">
             <a class="flex py-1 px-11 rounded border w-max mx-auto gap-3" target="_blank" href="./views/files/<?= $brief['PIECE_JOINTE'] ?>">
               <img src="https://cdn-icons-png.flaticon.com/128/13/13413.png" class="h-6">

@@ -18,6 +18,10 @@ class ProjectsRepository extends BaseRepository
         return $this->model->getAvaliableYears();
     }
 
+    public function getBriefDates(int $briefID){
+        return $this->model->briefDates($briefID);
+    }
+
     public function idBriefAssined( int $teacherID, int $projectID){
         return $this->model->idBrifAssined($teacherID, $projectID);
     }

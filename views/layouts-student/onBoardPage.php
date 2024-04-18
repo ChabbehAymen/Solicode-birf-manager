@@ -1,6 +1,7 @@
 <?php
 require_once dirname(dirname(dirname(__FILE__))) . '/controllers/studentWkAllBriefController.php';
 ?>
+<?php if (empty($_GET['briefid'])):?>
 <div class="w-full h-full">
     <?php foreach ($workingOnBrief as $brief):?>
     <div class="w-full border rounded flex mb-3">
@@ -11,13 +12,10 @@ require_once dirname(dirname(dirname(__FILE__))) . '/controllers/studentWkAllBri
             <p><?=$C['N']?>: <?=$C['D']?></p>
             <?php endforeach;?>
         </div>
-        <form class="w-min ml-auto" action="" method="post">
-        <?php if($brief['ETAT']==="TODO"):?>
-        <button class="p-2.5 rounded text-white hover:bg-green-500 bg-green-400 border-0 h-full" type="submit">Start </button>
-        <?php else:?>
-        <button class=" p-2.5 rounded text-white hover:bg-blue-500 bg-blue-400 border-0 h-full" type="submit">Send </button>
-        <?php endif?>
-        </form>
+        <button class="p-2.5 rounded text-white <?= $brief['ETAT']==="TODO"?"hover:bg-green-500 bg-green-400":"hover:bg-blue-500 bg-blue-400" ?> border-0 ml-auto briefStart" type="submit" id="<?=$brief['ID_BRIEF']?>" ><?= $brief['ETAT']==="TODO"?"Start":"Send" ?> </button>
 </div>
 <?php endforeach;?>
 </div>
+<?php else:
+    require_once dirname(dirname(dirname(__FILE__))) . '/views/layouts-student/briefDetailPage.php';?>
+<?php endif?>

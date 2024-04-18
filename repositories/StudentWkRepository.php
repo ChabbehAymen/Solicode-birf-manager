@@ -3,7 +3,7 @@ require_once(dirname(dirname(__FILE__)).'/repositories/BaseRepository.php');
 
 class StudentWkRepository extends BaseRepository
 {
-    
+
     public function __construct(StudentWorkStationModel $studentModel) {
         $this->model = $studentModel;
     }
@@ -20,7 +20,7 @@ class StudentWkRepository extends BaseRepository
         return $this->model->getStudentAccount($studentID);
     }
 
-    public function getWorkingOnBrief(int $studentID){
+    public function getWorkingOnBriefs(int $studentID){
         return $this->model->getWorkingOnBriefs($studentID);
     }
 
@@ -28,8 +28,8 @@ class StudentWkRepository extends BaseRepository
         return $this->model->getCompetence($breifID);
     }
 
-    public function getWorkingOnBreifs(int $studentID){
-        return $this->model->getWorkingOnBriefs($studentID);
+    public function getBreif(int $studentID, int $briefID){
+        return $this->model->getBrief(array('ID'=>$studentID, 'bID'=>$briefID));
     }
 
     public function update(mixed $params = null): array|bool{

@@ -34,13 +34,20 @@ class StudentWorkStationModel extends DbConfModel
     public function getWorkingOnBriefs(int $studetnID){
         $query = $this->pdo->prepare("SELECT ID_BRIEF, ETAT, TITRE, DATEDIFF( DATE(DATE_DEBUT+DURATION), NOW()) AS REST_DAYS 
         FROM REALISER INNER JOIN BRIEF USING (ID_BRIEF) 
-        WHERE ID_APPRENANT = :ID AND ETAT = 'TODO' OR ETAT = 'DOING'");
+        WHERE ID_APPRENANT = :ID AND (ETAT = 'TODO' OR ETAT = 'DOING')");
         $query->execute(array('ID' => $studetnID));
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function updateStatus(int $briefId){}
+    public function updateStatus(array $params): bool
+    {
+        $query = $this->pdo->prepare("UPDATE REALISER SET ETAT = :status WHERE ID_BRIEF = :bID AND ID_APPRENANT = :ID;");
+        return $query->execute(array('ID' => $params['ID'], 'bID'=>$params['briefID'], 'status'=>$params['status']));
+    }
 
-    public function updateUrl(int $briefId){}
-
+    public function deployProject(int $studentID,int $briefId, string $link): void
+    {
+        $query = $this->pdo->prepare("UPDATE REALISER SET LIEN = ':link' AND ETAT = 'DONE' AND COMPLETE_DATE = NOW() WHERE ID_BRIEF = :ID AND ID_APPRENANT = :ID ;");
+        $query->execute(array('ID' => $studentID, 'bID'=>$briefId, 'link'=>$link));
+    }
 }

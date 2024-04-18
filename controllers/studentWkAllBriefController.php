@@ -17,8 +17,15 @@ function getCompetences(int $briefID){
     $studentWkRepo = new StudentWkRepository(new StudentWorkStationModel());
     return $studentWkRepo->getCompetence($briefID);
 }
-
-//if (isset($_POST['start'])){
-//    $briefID = $_POST['briefId'];
-//    header("Location: ./mainStudent?page=onBoard&briefid=$briefID");
-//}
+function toDetailsPage(): void
+{
+    header("Location: ./mainStudent?page=onBoard&briefid=".$_POST['breifID']);
+}
+if (isset($_POST['start'])){
+    $briefID = $_POST['breifID'];
+    $studentWkRepo->update(array('ID'=>$_SESSION['user']['id'], 'briefID'=>$briefID, 'status'=>'DOING'));
+    toDetailsPage();
+}
+if (isset($_POST['send'])){
+    toDetailsPage();
+}

@@ -33,6 +33,6 @@ class StudentWkRepository extends BaseRepository
     }
 
     public function update(mixed $params = null): array|bool{
-        return false;
+        return $this->model->updateStatus($params);
     }
 }

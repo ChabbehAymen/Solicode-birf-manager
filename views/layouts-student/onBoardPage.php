@@ -12,7 +12,10 @@ require_once dirname(dirname(dirname(__FILE__))) . '/controllers/studentWkAllBri
             <p><?=$C['N']?>: <?=$C['D']?></p>
             <?php endforeach;?>
         </div>
-        <button class="p-2.5 rounded text-white <?= $brief['ETAT']==="TODO"?"hover:bg-green-500 bg-green-400":"hover:bg-blue-500 bg-blue-400" ?> border-0 ml-auto briefStart" type="submit" id="<?=$brief['ID_BRIEF']?>" ><?= $brief['ETAT']==="TODO"?"Start":"Send" ?> </button>
+        <form class="w-min ml-auto" action="" method="post">
+            <input type="submit" value="<?= $brief['ETAT']==="TODO"?"Start":"Send" ?>" class="p-2.5 rounded text-white <?= $brief['ETAT']==="TODO"?"hover:bg-green-500 bg-green-400":"hover:bg-blue-500 bg-blue-400" ?> border-0 h-full ml-auto briefStart" name="<?= $brief['ETAT']==="TODO"?"start":"send" ?>">
+            <input type="text" value="<?=$brief['ID_BRIEF']?>" name="breifID" class="hidden">
+        </form>
 </div>
 <?php endforeach;?>
 </div>
